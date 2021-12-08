@@ -19,6 +19,7 @@ app.use(loginRoute);
 
 ////////////////////
 const Port = 5000;
-app.listen(Port, () => {
-  console.log("server run on 5000 port");
+app.listen(process.env.PORT, () => {
+  console.log("server is running");
 });
+
