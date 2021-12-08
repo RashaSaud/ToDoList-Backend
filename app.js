@@ -1,54 +1,54 @@
-require('dotenv').config()
-const express = require("express");
-const app = express();
+// require('dotenv').config()
+// const express = require("express");
+// const app = express();
 
-require("./db/db.js");
+// require("./db/db.js");
 
-const courseModel= require("./db/models/tasksModel")
-const cors = require("cors")
-app.use(express.json());
-app.use(cors())
+// const courseModel= require("./db/models/tasksModel")
+// const cors = require("cors")
+// app.use(express.json());
+// app.use(cors())
 
 
 
-//Endpoints with db
-app.get("/", (req, res) => {
-  res.status(200).json("hello from my app");
-});
+// //Endpoints with db
+// app.get("/", (req, res) => {
+//   res.status(200).json("hello from my app");
+// });
 
-app.get("/courses",async (req,res)=>{
-    try {
-         const courses = await courseModel.find({});
-        res.status(200).json(courses)
-    } catch (error){
-        res.send(error)
-    }
+// app.get("/courses",async (req,res)=>{
+//     try {
+//          const courses = await courseModel.find({});
+//         res.status(200).json(courses)
+//     } catch (error){
+//         res.send(error)
+//     }
    
 
-})
+// })
 
-app.post("/course",async (req, res)=>{
-    const { newName, newDescription, newImg } = req.body;
-    const newCourse = new courseModel({name:newName, description:newDescription, img:newImg})
-    try {
-        const savedCourse = await newCourse.save()
-         const courses = await courseModel.find({});
-        res.status(200).json(courses)
+// app.post("/course",async (req, res)=>{
+//     const { newName, newDescription, newImg } = req.body;
+//     const newCourse = new courseModel({name:newName, description:newDescription, img:newImg})
+//     try {
+//         const savedCourse = await newCourse.save()
+//          const courses = await courseModel.find({});
+//         res.status(200).json(courses)
 
-    }catch (error){
-        res.send(error)
-    }
-})
+//     }catch (error){
+//         res.send(error)
+//     }
+// })
 
-app.delete("/course/:id",async (req,res)=>{
-    const id= req.params.id;
-    try {
-    const course= await courseModel.findOneAndDelete({_id:id});
-    res.status(200).json(course)
-    } catch(error){
-        res.send(error)
-    }
-})
+// app.delete("/course/:id",async (req,res)=>{
+//     const id= req.params.id;
+//     try {
+//     const course= await courseModel.findOneAndDelete({_id:id});
+//     res.status(200).json(course)
+//     } catch(error){
+//         res.send(error)
+//     }
+// })
 
 //How to extract the callback function 
 // const deleteCourse = async (req, res) => {
@@ -82,7 +82,7 @@ app.delete("/course/:id",async (req,res)=>{
 // });
 
 //////////////
-const Port = 5000;
-app.listen(process.env.PORT|| Port, () => {
-  console.log("server is running");
-});
+// const Port = 5000;
+// app.listen(process.env.PORT|| Port, () => {
+//   console.log("server is running");
+// });
