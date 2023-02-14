@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
+
 const tasksModel = new mongoose.Schema({
+  
   name: { type: String },
   task:  {type: Array } ,
   check : {type: Boolean},
